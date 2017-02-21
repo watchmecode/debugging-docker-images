@@ -1,0 +1,11 @@
+.git
+.DS_Store
+.vscode
+.editorconfig
+.dockerignore
+*.swp
+node_modules
+Dockerfile
+dev.dockerfile
+npm-debug.log
+web-dev.sh

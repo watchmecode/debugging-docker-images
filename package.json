@@ -1,0 +1,30 @@
+{
+  "name": "debugging-docker-images",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start-web": "node ./web/bin/www",
+    "docker:build": "docker build -t debugging-docker-images .",
+    "docker:build:dev": "docker build -t debugging-docker-images:dev -f dev.dockerfile .",
+    "docker:run": "docker run -d -p 3000:3000 -v $PWD:/var/app --name ddi-prod debugging-docker-images; exit 0",
+    "docker:run:dev": "docker run -d -p 3000:3000 -p 5858:5858 -p 35729:35729 -v $PWD:/var/app --name ddi-dev debugging-docker-images:dev; exit 0",
+    "docker:clean": "docker stop ddi-dev ddi-prod; docker rm ddi-dev ddi-prod; docker rmi debugging-docker-images:dev debugging-docker-images; exit 0",
+    "docker:shell": "docker run -it --rm -p 3000:3000 -v $PWD:/var/app debugging-docker-images /bin/sh; exit 0",
+    "docker:shell:dev": "docker run -it --rm -p 3000:3000 -p 5858:5858 -p 35729:35729 -v $PWD:/var/app debugging-docker-images:dev /bin/sh; exit 0"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-jasmine-nodejs": "1.5.4"
+  }
+}
