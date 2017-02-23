@@ -2,4 +2,4 @@
 
 npm install
 
-nodemon web/bin/www
+exec nodemon web/bin/www
