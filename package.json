@@ -3,19 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start-web": "node ./web/bin/www",
-    "docker:build": "docker build -t debugging-docker-images .",
-    "docker:build:dev": "docker build -t debugging-docker-images:dev -f dev.dockerfile .",
-    "docker:run": "docker run -d -p 3000:3000 -v $PWD:/var/app --name ddi-prod debugging-docker-images",
-    "docker:run:dev": "docker run -d -p 3000:3000 -p 5858:5858 -p 35729:35729 -v $PWD:/var/app --name ddi-dev debugging-docker-images:dev",
-    "docker:stop": "docker stop ddi-prod",
-    "docker:stop:dev": "docker stop ddi-dev",
-    "docker:shell:dev": "docker exec -it ddi-dev /bin/sh",
-    "docker:shell:root:dev": "docker exec -it --user root ddi-dev /bin/sh",
-    "docker:clean": "docker rm ddi-prod ddi-dev; docker rmi debugging-docker-images debugging-docker-images:dev; exit 0"
+    "start-web": "node ./web/bin/www"
   },
   "dependencies": {
-    "bcrypt": "1.0.2",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
