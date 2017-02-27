@@ -6,7 +6,7 @@ describe("do stuff", function(){
     var output;
 
     beforeEach(function(){
-      var output = sample.foo();
+      output = sample.foo();
     });
 
     it("should do stuff", function(){
